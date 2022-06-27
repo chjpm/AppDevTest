@@ -1,0 +1,14 @@
+
+<p *ngIf="productData.price>700">Course is available for discount(Price is greater than 700.)</p>
+    
+<ng-container *ngIf="productData.quantity > 0 then buttonTemplate else msgTemplate"></ng-container>
+<ng-template #buttonTemplate>
+    <button class="btn btn-primary" [disabled]=isChangedChild (click)="onClick()">Check Availability</button>
+    <!--Copncept-3a-->
+
+    <button (click)="onClickFromChild()">ChildEvent Execute ParentMethod</button>
+    <button (click)="onClickTestChild()">Test</button>
+</ng-template>
+<ng-template #msgTemplate>
+    <p>Course is not available to buy.(Quantity is zero.)</p>
+</ng-template>
