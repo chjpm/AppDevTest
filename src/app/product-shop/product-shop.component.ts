@@ -13,6 +13,9 @@ import { Product } from 'src/Product';
 export class ProductShopComponent implements OnInit {
   product : any;
   checkDesc: string = " ";
+  disabledButton = false;
+  txtAddToCart: string = "Add to Cart";
+  isSubmitted: boolean = false;
 
   constructor(private route: ActivatedRoute) { }
 
@@ -29,5 +32,11 @@ export class ProductShopComponent implements OnInit {
     console.log(products.find(product => product.id ==id));
     this.checkDesc = products.find(product => product.id ==id)?.description ?? "test" ;
   }
-
+  addToCart()
+  {
+    this.disabledButton = true;
+    this.txtAddToCart = "Added to Cart";
+    this.isSubmitted = true;
+  }
 }
+
